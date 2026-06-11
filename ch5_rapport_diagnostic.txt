@@ -1,0 +1,40 @@
+======================================================================
+  RAPPORT DE DIAGNOSTIC — SYSTÈME PMSM
+  Méthode : Health Index Adaptatif (ACP-Variance)
+  THD calculé sur f_fund = 127.3 Hz (version corrigée)
+======================================================================
+
+  Seuil Normal   (vert)   : HI > 0.850
+  Seuil Dégradé  (orange) : 0.650 < HI ≤ 0.850
+  Seuil Critique (rouge)  : HI ≤ 0.650
+  Justification seuils    : littérature [19][20] + validation a posteriori
+
+----------------------------------------------------------------------
+  Scénario                         HI  Statut        Action recommandée
+----------------------------------------------------------------------
+  Nominal                       1.000  ✓ Normal      Surveillance périodique standard — aucune action requise
+  short_circuit                 1.000  ✓ Normal      Surveillance + analyse FFT complémentaire recommandée (défaut non détecté par HI — recours au SVM Ch.VII)
+  phase_imbalance               0.000  ✗ Critique    ARRÊT IMMÉDIAT — vérifier alimentation onduleur et symétrie des phases
+  magnet_demagnetization        0.490  ✗ Critique    ARRÊT IMMÉDIAT — remplacement des aimants permanents ou reconditionnement thermique
+  bearing_fault                 0.205  ✗ Critique    ARRÊT IMMÉDIAT — remplacement du roulement avant propagation aux enroulements
+  wiring_fault                  0.997  ✓ Normal      Surveillance + inspection des connexions électriques (défaut non détecté par HI — recours au SVM Ch.VII)
+
+----------------------------------------------------------------------
+  TAUX DE DÉTECTION HI : 3/5 défauts (60%)
+  Défauts non détectés : court-circuit et câblage → recours au SVM (Ch.VII)
+
+----------------------------------------------------------------------
+  TOP 5 INDICATEURS LES PLUS DISCRIMINANTS
+----------------------------------------------------------------------
+  1. Kurtosis                   w = 0.0745  (7.5%)
+  2. RMS                        w = 0.0733  (7.3%)
+  3. Energy_100_200Hz           w = 0.0730  (7.3%)
+  4. Variance                   w = 0.0726  (7.3%)
+  5. Crest_Factor               w = 0.0722  (7.2%)
+
+----------------------------------------------------------------------
+  INDICATEURS À POIDS NUL (non discriminants)
+----------------------------------------------------------------------
+  - Wav_E_D1                   w ≈ 0.000000
+
+======================================================================
